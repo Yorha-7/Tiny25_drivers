@@ -49,9 +49,23 @@ void beginADC(){
 	Delay(15);
 	ADCSRA = (uint8_t) 0xC0;
 }
+
 void readAnalog(){
 	while((ADCSRA & 0x10) != 0x10) { PTR_1 = (ADCSRA & 0x10); }
 	PTR_2 = ADCL;
 	PTR_1 = ADCH;
 }
 
+// USI Communication
+
+void USI_transmit(uint8_t data){
+	PORTB = 0x04;
+	DDRB  = 0xFE;
+	USIDR = data;
+	USISR = 0x40;
+	do {
+        	USICR = 0x1B;
+		PTR_1 = USIBR;
+    	}
+    	while (!(USISR & (1<<6)));
+}

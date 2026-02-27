@@ -25,4 +25,13 @@ void pinMode( uint8_t Pin, char M );
 void Delay( uint8_t time );
 uint8_t digitalRead( uint8_t Pin );
 void digitalWrite( uint8_t Pin, uint8_t Value );
+
+// USI Communication
+#define USIDR (*(volatile uint8_t*) 0x2f)
+#define USISR (*(volatile uint8_t*) 0x2e)
+#define USICR (*(volatile uint8_t*) 0x2d)
+#define USIBR (*(volatile uint8_t*) 0x30)
+// USI communication
+void USI_transmit(uint8_t data);
+
 #endif
