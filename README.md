@@ -8,4 +8,4 @@ also i drank too much coffee.
 
 I tried SPI driver recently and this are the results for the three wire communication.
 
-<img src="/home/pi/AVR/spi.png" weidth="640" height="480">
+<img src="./spi.png" weidth="640" height="480">
