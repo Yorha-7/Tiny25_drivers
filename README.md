@@ -9,3 +9,7 @@ also i drank too much coffee.
 I tried SPI driver recently and this are the results for the three wire communication.
 
 <img src="./spi.png" weidth="640" height="480">
+
+Here are the results for the I2C communication... I am fucking proud of myself that i did it without any fucking internet..... Damn I am Good at this.
+
+<img src="./I2C.png" weidth="640" height="480">

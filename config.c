@@ -69,3 +69,16 @@ void USI_transmit(uint8_t data){
     	}
     	while (!(USISR & (1<<6)));
 }
+
+void I2C_transmit(uint8_t data){
+	PORTB = 0x05;
+	DDRB  = 0xFF;
+	USIDR = data;
+	USISR = 0x40;
+	do {
+		USICR = 0x2B;
+		PTR_1 = USIBR;
+	}
+	while (!(USISR & (1<<6)));
+}
+

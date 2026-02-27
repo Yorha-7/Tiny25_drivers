@@ -33,5 +33,6 @@ void digitalWrite( uint8_t Pin, uint8_t Value );
 #define USIBR (*(volatile uint8_t*) 0x30)
 // USI communication
 void USI_transmit(uint8_t data);
+void I2C_transmit(uint8_t data);
 
 #endif
