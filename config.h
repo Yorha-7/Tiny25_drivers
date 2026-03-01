@@ -2,7 +2,8 @@
 #define CONFIG_H
 
 #include <stdint.h>
-
+//MCU control register
+#define MCUCR   (*(volatile uint8_t*) 0x55)
 //Digital Parameters
 #define PORTB   (*(volatile uint8_t*) 0x38)
 #define DDRB    (*(volatile uint8_t*) 0x37)
@@ -10,10 +11,10 @@
 #define PTR_1   (*(volatile uint8_t*) 0xC0)
 #define PTR_2   (*(volatile uint8_t*) 0xC1)
 //Analog Parameters
-#define ADCSRA (*(volatile uint8_t*) 0x26)
-#define ADMUX  (*(volatile uint8_t*) 0x27)
-#define ADCH   (*(volatile uint8_t*) 0x25)
-#define ADCL   (*(volatile uint8_t*) 0x24)
+#define ADCSRA  (*(volatile uint8_t*) 0x26)
+#define ADMUX   (*(volatile uint8_t*) 0x27)
+#define ADCH    (*(volatile uint8_t*) 0x25)
+#define ADCL    (*(volatile uint8_t*) 0x24)
 
 //Analog functions
 void confADC(uint8_t a);

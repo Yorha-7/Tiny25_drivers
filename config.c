@@ -60,7 +60,7 @@ void readAnalog(){
 
 void USI_transmit(uint8_t data){
 	PORTB = 0x04;
-	DDRB  = 0xFE;
+	DDRB  = 0x04;
 	USIDR = data;
 	USISR = 0x40;
 	do {
@@ -71,14 +71,29 @@ void USI_transmit(uint8_t data){
 }
 
 void I2C_transmit(uint8_t data){
-	PORTB = 0x05;
-	DDRB  = 0xFF;
-	USIDR = data;
-	USISR = 0x40;
+//	MCUCR |= 0x00;  // 0x40 to set pull ups.
+	PORTB  = 0x05;	// 0x05 pull up value
+	DDRB   = 0x05;
+	USIDR  = (0xFE & data);
+	USISR  = 0x40;
+	PTR_1  = USIDR;
 	do {
 		USICR = 0x2B;
-		PTR_1 = USIBR;
+//		PTR_1 = USIBR;
 	}
 	while (!(USISR & (1<<6)));
+//	DDRB  = 0x04;
+//	USISR = 0x40;
+//	PORTB = 0x05;
+//	do {
+//		USICR = 0x2B;
+//		PTR_1 = USIBR;
+//	}
+//	while (!(USISR & (1<<6)));
+//	USISR = 0x40;
+//	USICR = 0x2B;
+//	DDRB  = 0xFE;
+//	while (!(USISR & (1<<6)));
+//	PTR_2 = USIDR;
 }
 
